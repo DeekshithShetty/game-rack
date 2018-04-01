@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/prefs_category_backup_restore">
+
+        <EditTextPreference
+            android:defaultValue="@string/prefs_default_value_backup"
+            android:key="@string/prefs_key_backup"
+            android:title="@string/prefs_title_backup"
+            android:summary="@string/prefs_summary_backup" />
+
+        <Preference
+            android:key="@string/prefs_key_restore"
+            android:title="@string/prefs_key_restore"
+            android:summary="@string/prefs_summary_restore" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/prefs_category_about">
+
+        <Preference
+            android:selectable="false"
+            android:title="@string/prefs_title_app_developer"
+            android:summary="@string/prefs_summary_app_developer">
+        </Preference>
+
+        <Preference
+            android:selectable="false"
+            android:title="@string/prefs_title_app_version"
+            android:summary="@string/prefs_summary_app_version" />
+
+        <Preference
+            android:selectable="false"
+            android:title="@string/prefs_title_data_provider"
+            android:summary="@string/prefs_summary_data_provider" />
+
+        <Preference
+            android:key="@string/prefs_key_remove_ads"
+            android:title="@string/prefs_title_remove_ads" />
+
+        <Preference
+            android:key="@string/prefs_key_rate_app"
+            android:title="@string/prefs_title_rate_app" />
+
+        <Preference
+            android:key="@string/prefs_key_send_feedback"
+            android:title="@string/prefs_key_send_feedback"
+            android:summary="@string/prefs_summary_send_feedback" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

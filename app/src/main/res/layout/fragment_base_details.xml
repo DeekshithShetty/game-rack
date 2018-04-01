@@ -1,0 +1,654 @@
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.saiyanstudio.gamerack.fragments.BaseDetailsFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:paddingTop="@dimen/layout_padding"
+        android:paddingStart="@dimen/layout_padding"
+        android:paddingEnd="@dimen/layout_padding"
+        android:paddingBottom="@dimen/layout_paddingBottom_ad">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:cardBackgroundColor="@color/background_list_row_card"
+            android:focusable="true">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="@dimen/width_details_image_view"
+                    android:layout_height="@dimen/height_details_image_view"
+                    android:id="@+id/imageView_game"
+                    android:src="@drawable/ic_image_grey_24dp"
+                    android:scaleType="centerInside"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView_backgroundImage"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_details_image_view"
+                    android:src="@drawable/ic_image_grey_24dp"
+                    android:alpha="0.2"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView_game"/>
+
+                <TextView
+                    android:id="@+id/textView_game_status"
+                    android:text="@string/sample_game_status"
+                    android:textSize="@dimen/textSize_details_game_status"
+                    android:textColor="@color/text_color_text_view_details_game_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_details_heading_value"
+                    android:layout_marginStart="@dimen/marginTop_details_heading_value"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView_game" />
+
+                <TextView
+                    android:id="@+id/textView_game_platform_store"
+                    android:text="@string/sample_platform_store"
+                    android:textSize="@dimen/textSize_details_game_platform_store"
+                    android:textColor="@color/text_color_text_view_details_game_platform_store"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_details_heading_value"
+                    android:layout_marginStart="@dimen/marginTop_details_heading_value"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_game_status"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView_game" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView1"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop_details_grouping"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/ad_banner_ad_unit_id"/>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop_details_grouping"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adView1"
+            app:layout_constraintVertical_bias="0.0">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layout_ratings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <TextView
+                    android:id="@+id/textView_ratings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_text_view_details_heading"
+                    android:textSize="@dimen/textSize_details_content_heading"
+                    android:text="@string/txt_ratings"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/padding_rating_layout"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_ratings">
+
+                    <LinearLayout
+                        android:id="@+id/layout_steam_ratings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/layout_critic_ratings"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/textView_igdb_ratings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/sample_igdb_ratings"
+                            android:textColor="@color/text_color_text_view_details_value"
+                            android:textSize="@dimen/textSize_details_rating" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/marginTop_details_heading_value"
+                            android:textColor="@color/text_color_text_view_details_heading"
+                            android:text="@string/raters_igdb"
+                            android:textSize="@dimen/textSize_details_content_heading" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_critic_ratings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintLeft_toRightOf="@+id/layout_steam_ratings"
+                        app:layout_constraintRight_toLeftOf="@+id/layout_ign_ratings"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/textView_metacritic_ratings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/sample_critic_ratings"
+                            android:textColor="@color/text_color_text_view_details_value"
+                            android:textSize="@dimen/textSize_details_rating" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/marginTop_details_heading_value"
+                            android:textColor="@color/text_color_text_view_details_heading"
+                            android:text="@string/raters_critic"
+                            android:textSize="@dimen/textSize_details_content_heading" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_ign_ratings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:orientation="vertical"
+                        app:layout_constraintLeft_toRightOf="@id/layout_critic_ratings"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/textView_ign_ratings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/sample_ign_ratings"
+                            android:textColor="@color/text_color_text_view_details_value"
+                            android:textSize="@dimen/textSize_details_rating" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/marginTop_details_heading_value"
+                            android:textColor="@color/text_color_text_view_details_heading"
+                            android:text="@string/raters_ign"
+                            android:textSize="@dimen/textSize_details_content_heading" />
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:id="@+id/view_divider1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_details_divider"
+                android:layout_marginBottom="@dimen/marginBottom_details_divider"
+                android:layout_marginTop="@dimen/marginTop_details_divider"
+                android:background="@color/background_view_divider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_ratings" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layout_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop_details_grouping"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider1">
+
+                <TextView
+                    android:id="@+id/textView_description_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_description"
+                    android:textSize="@dimen/textSize_details_content_heading"
+                    android:textColor="@color/text_color_text_view_details_heading"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="@dimen/textSize_details_content_value"
+                    android:text="@string/sample_game_description"
+                    android:textColor="@color/text_color_text_view_details_value"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_description_heading" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:id="@+id/view_divider2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_details_divider"
+                android:layout_marginBottom="@dimen/marginBottom_details_divider"
+                android:layout_marginTop="@dimen/marginTop_details_divider"
+                android:background="@color/background_view_divider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_description" />
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView2"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop_details_grouping"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider2"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/ad_banner_ad_unit_id"/>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layout_release_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop_details_grouping"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/adView2">
+
+                <TextView
+                    android:id="@+id/textView_developer_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textSize_details_content_heading"
+                    android:text="@string/txt_developer"
+                    android:textColor="@color/text_color_text_view_details_heading"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView_developer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_details_heading_value"
+                    android:textSize="@dimen/textSize_details_content_value"
+                    android:text="@string/sample_developer"
+                    android:textColor="@color/text_color_text_view_details_value"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_developer_heading" />
+
+                <TextView
+                    android:id="@+id/textView_release_date_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_details_grouping"
+                    android:textSize="@dimen/textSize_details_content_heading"
+                    android:text="@string/txt_release_date"
+                    android:textColor="@color/text_color_text_view_details_heading"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_developer" />
+
+                <TextView
+                    android:id="@+id/textView_release_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_details_heading_value"
+                    android:textSize="@dimen/textSize_details_content_value"
+                    android:text="@string/sample_release_date"
+                    android:textColor="@color/text_color_text_view_details_value"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_release_date_heading" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:id="@+id/view_divider3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_details_divider"
+                android:layout_marginBottom="@dimen/marginBottom_details_divider"
+                android:layout_marginTop="@dimen/marginTop_details_divider"
+                android:background="@color/background_view_divider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_release_date" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layout_gameplay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop_details_grouping"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider3">
+
+                <TextView
+                    android:id="@+id/textView_genres_tags_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_genres_tags"
+                    android:textSize="@dimen/textSize_details_content_heading"
+                    android:textColor="@color/text_color_text_view_details_heading"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView_genres_tags"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_details_heading_value"
+                    android:text="@string/sample_genres_tags"
+                    android:textSize="@dimen/textSize_details_content_value"
+                    android:textColor="@color/text_color_text_view_details_value"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_genres_tags_heading" />
+
+                <TextView
+                    android:id="@+id/textView_gameplay_time_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_details_grouping"
+                    android:textSize="@dimen/textSize_details_content_heading"
+                    android:text="@string/txt_gameplay_time"
+                    android:textColor="@color/text_color_text_view_details_heading"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_genres_tags" />
+
+                <TextView
+                    android:id="@+id/textView_gameplay_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_details_heading_value"
+                    android:textSize="@dimen/textSize_details_content_value"
+                    android:text="@string/sample_gameplay_time"
+                    android:textColor="@color/text_color_text_view_details_value"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_gameplay_time_heading" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:id="@+id/view_divider4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_details_divider"
+                android:layout_marginBottom="@dimen/marginBottom_details_divider"
+                android:layout_marginTop="@dimen/marginTop_details_divider"
+                android:background="@color/background_view_divider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_gameplay" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layout_content_rating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop_details_grouping"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider4">
+
+                <TextView
+                    android:id="@+id/textView_content_rating_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textSize_details_content_heading"
+                    android:text="@string/txt_content_rating"
+                    android:textColor="@color/text_color_text_view_details_heading"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView_content_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_details_heading_value"
+                    android:textSize="@dimen/textSize_details_content_value"
+                    android:text="@string/sample_content_rating"
+                    android:textColor="@color/text_color_text_view_details_value"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_content_rating_heading" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:id="@+id/view_divider5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_details_divider"
+                android:layout_marginBottom="@dimen/marginBottom_details_divider"
+                android:layout_marginTop="@dimen/marginTop_details_divider"
+                android:background="@color/background_view_divider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_content_rating" />
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView3"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop_details_grouping"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider5"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/ad_banner_ad_unit_id"/>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layout_external_links"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop_details_grouping"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/adView3">
+
+                <TextView
+                    android:id="@+id/textView_external_links_heading"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textSize_details_content_heading"
+                    android:text="@string/txt_external_links"
+                    android:textColor="@color/text_color_text_view_details_heading"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/layout_link_official_site"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/marginTop_details_heading_value"
+                    android:visibility="gone"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_external_links_heading">
+
+                    <ImageView
+                        android:id="@+id/imageView_link_official_site"
+                        android:layout_width="@dimen/width_external_link_image_view"
+                        android:layout_height="@dimen/height_external_link_image_view"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_eye_white_24dp" />
+
+                    <TextView
+                        android:id="@+id/textView_link_official_site"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textSize_details_external_links"
+                        android:paddingTop="@dimen/paddingTop_external_links_layout"
+                        android:paddingBottom="@dimen/paddingBottom_external_links_layout"
+                        android:layout_marginStart="@dimen/marginStart_external_link_text_view"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:text="@string/txt_official_site"
+                        android:textColor="@color/text_color_text_view_details_value" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_link_steam"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_link_official_site">
+
+                    <ImageView
+                        android:id="@+id/imageView_link_steam"
+                        android:layout_width="@dimen/width_external_link_image_view"
+                        android:layout_height="@dimen/height_external_link_image_view"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_eye_white_24dp" />
+
+                    <TextView
+                        android:id="@+id/textView_link_steam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/marginStart_external_link_text_view"
+                        android:paddingTop="@dimen/paddingTop_external_links_layout"
+                        android:paddingBottom="@dimen/paddingBottom_external_links_layout"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:textSize="@dimen/textSize_details_external_links"
+                        android:text="@string/txt_steam"
+                        android:textColor="@color/text_color_text_view_details_value" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_link_twitch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_link_steam">
+
+                    <ImageView
+                        android:id="@+id/imageView_link_twitch"
+                        android:layout_width="@dimen/width_external_link_image_view"
+                        android:layout_height="@dimen/height_external_link_image_view"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_eye_white_24dp" />
+
+                    <TextView
+                        android:id="@+id/textView_link_twitch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/paddingTop_external_links_layout"
+                        android:paddingBottom="@dimen/paddingBottom_external_links_layout"
+                        android:layout_marginStart="@dimen/marginStart_external_link_text_view"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:textSize="@dimen/textSize_details_external_links"
+                        android:text="@string/txt_twitch"
+                        android:textColor="@color/text_color_text_view_details_value" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_link_wikia"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_link_twitch">
+
+                    <ImageView
+                        android:id="@+id/imageView_link_wikia"
+                        android:layout_width="@dimen/width_external_link_image_view"
+                        android:layout_height="@dimen/height_external_link_image_view"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_eye_white_24dp" />
+
+                    <TextView
+                        android:id="@+id/textView_link_wikia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/marginStart_external_link_text_view"
+                        android:paddingTop="@dimen/paddingTop_external_links_layout"
+                        android:paddingBottom="@dimen/paddingBottom_external_links_layout"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:text="@string/txt_wikia"
+                        android:textColor="@color/text_color_text_view_details_value"
+                        android:textSize="@dimen/textSize_details_external_links"/>
+
+                </LinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>
+
+

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#424242"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:minHeight="350dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1" >
+
+        <FrameLayout
+            android:id="@+id/layout_progress_bar"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"/>
+        </FrameLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView_game_info"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/layout_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imageView_game"
+                        android:layout_width="@dimen/width_details_image_view"
+                        android:layout_height="@dimen/height_details_image_view"
+                        android:scaleType="fitXY"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/ic_image_grey_24dp" />
+
+                    <TextView
+                        android:id="@+id/textView_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="@dimen/marginStart_game_dialog_text_view"
+                        android:layout_marginTop="@dimen/marginTop_game_dialog_text_view"
+                        android:layout_marginEnd="@dimen/marginEnd_game_dialog_text_view"
+                        android:textColor="@color/text_color_text_view_game_dialog_game_name"
+                        android:layout_toEndOf="@id/imageView_game"
+                        android:text="@string/sample_game_name"
+                        android:textSize="@dimen/textSize_game_dialog_game_name" />
+
+                    <TextView
+                        android:id="@+id/textView_developer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textView_name"
+                        android:layout_marginStart="@dimen/marginStart_game_dialog_text_view"
+                        android:layout_marginTop="@dimen/marginTop_game_dialog_text_view"
+                        android:layout_marginEnd="@dimen/marginEnd_game_dialog_text_view"
+                        android:layout_toEndOf="@id/imageView_game"
+                        android:textColor="@color/text_color_text_view_game_dialog_game_developer"
+                        android:text="@string/sample_publisher"
+                        android:textSize="@dimen/textSize_game_dialog_game_developer" />
+
+                    <TextView
+                        android:id="@+id/textView_release_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textView_developer"
+                        android:layout_marginStart="@dimen/marginStart_game_dialog_text_view"
+                        android:layout_marginTop="@dimen/marginTop_game_dialog_text_view"
+                        android:layout_marginEnd="@dimen/marginEnd_game_dialog_text_view"
+                        android:layout_toEndOf="@id/imageView_game"
+                        android:textColor="@color/text_color_text_view_game_dialog_game_release_date"
+                        android:text="@string/sample_release_date"
+                        android:textSize="@dimen/textSize_game_dialog_game_release_date" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textView_description_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/layout_header"
+                    android:layout_marginStart="@dimen/marginStart_game_dialog_heading_value"
+                    android:layout_marginEnd="@dimen/marginEnd_game_dialog_heading_value"
+                    android:layout_marginTop="@dimen/marginTop_game_dialog_grouping"
+                    android:textColor="@color/text_color_text_view_details_heading"
+                    android:textSize="@dimen/textSize_game_dialog_content_heading"
+                    android:text="@string/txt_description" />
+
+                <TextView
+                    android:id="@+id/textView_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/textView_description_heading"
+                    android:layout_marginStart="@dimen/marginStart_game_dialog_heading_value"
+                    android:layout_marginEnd="@dimen/marginEnd_game_dialog_heading_value"
+                    android:layout_marginTop="@dimen/marginTop_game_dialog_heading_value"
+                    android:textColor="@color/text_color_text_view_details_value"
+                    android:textSize="@dimen/textSize_game_dialog_content_value"
+                    android:text="@string/sample_game_description" />
+
+                <TextView
+                    android:id="@+id/textView_platform_store_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/textView_description"
+                    android:layout_marginStart="@dimen/marginStart_game_dialog_heading_value"
+                    android:layout_marginEnd="@dimen/marginEnd_game_dialog_heading_value"
+                    android:layout_marginTop="@dimen/marginTop_game_dialog_grouping"
+                    android:textColor="@color/text_color_text_view_details_heading"
+                    android:textSize="@dimen/textSize_game_dialog_content_heading"
+                    android:text="@string/txt_platform_store" />
+
+                <LinearLayout
+                    android:id="@+id/layout_platform_store_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/textView_platform_store_heading"
+                    android:layout_marginStart="@dimen/marginStart_game_dialog_heading_value"
+                    android:layout_marginEnd="@dimen/marginEnd_game_dialog_heading_value"
+                    android:layout_marginTop="@dimen/marginTop_game_dialog_heading_value">
+
+                    <Spinner
+                        android:id="@+id/spinner_platform"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_game_dialog_spinner"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/text_color_text_view_details_value"
+                        android:textSize="@dimen/textSize_game_dialog_content_value"
+                        android:spinnerMode="dropdown" />
+
+                    <Spinner
+                        android:id="@+id/spinner_store"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_game_dialog_spinner"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/text_color_text_view_details_value"
+                        android:textSize="@dimen/textSize_game_dialog_content_value"
+                        android:spinnerMode="dropdown" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView_status_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/layout_platform_store_value"
+                    android:layout_marginStart="@dimen/marginStart_game_dialog_heading_value"
+                    android:layout_marginEnd="@dimen/marginEnd_game_dialog_heading_value"
+                    android:layout_marginTop="@dimen/marginTop_game_dialog_grouping"
+                    android:textColor="@color/text_color_text_view_details_heading"
+                    android:textSize="@dimen/textSize_game_dialog_content_heading"
+                    android:text="@string/txt_status" />
+
+                <Spinner
+                    android:id="@+id/spinner_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_game_dialog_spinner"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/textView_status_heading"
+                    android:layout_marginStart="@dimen/marginStart_game_dialog_heading_value"
+                    android:layout_marginEnd="@dimen/marginEnd_game_dialog_heading_value"
+                    android:layout_marginTop="@dimen/marginTop_game_dialog_grouping"
+                    android:layout_marginBottom="@dimen/marginBottom_game_dialog_heading_value"
+                    android:textColor="@color/text_color_text_view_details_value"
+                    android:textSize="@dimen/textSize_game_dialog_content_value"
+                    android:spinnerMode="dropdown" />
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_footer"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/background_view_divider"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/button_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize_game_dialog_button"
+            android:text="@string/button_add"
+            android:textColor="@color/colorAccent"
+            android:padding="@dimen/padding_game_dialog_button"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/divider"/>
+
+        <Button
+            android:id="@+id/button_dismiss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize_game_dialog_button"
+            android:text="@string/button_dismiss"
+            android:textColor="@color/colorAccent"
+            android:padding="@dimen/padding_game_dialog_button"
+            android:layout_marginEnd="@dimen/marginEnd_game_dialog_button"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_toStartOf="@+id/button_add"
+            android:layout_below="@id/divider"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nestedScrollView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView_platform_store_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/marginStart_game_dialog_heading_value"
+                android:layout_marginEnd="@dimen/marginEnd_game_dialog_heading_value"
+                android:layout_marginTop="@dimen/marginTop_game_dialog_grouping"
+                android:textColor="@color/text_color_text_view_details_heading"
+                android:textSize="@dimen/textSize_edit_game_dialog_content_heading"
+                android:text="@string/txt_platform_store" />
+
+            <LinearLayout
+                android:id="@+id/layout_platform_store_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/textView_platform_store_heading"
+                android:layout_marginStart="@dimen/marginStart_game_dialog_heading_value"
+                android:layout_marginEnd="@dimen/marginEnd_game_dialog_heading_value"
+                android:layout_marginTop="@dimen/marginTop_game_dialog_heading_value">
+
+                <Spinner
+                    android:id="@+id/spinner_platform"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_edit_game_dialog_spinner"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/text_color_text_view_details_value"
+                    android:textSize="@dimen/textSize_edit_game_dialog_content_value"
+                    android:spinnerMode="dropdown" />
+
+                <Spinner
+                    android:id="@+id/spinner_store"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_edit_game_dialog_spinner"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/text_color_text_view_details_value"
+                    android:textSize="@dimen/textSize_edit_game_dialog_content_value"
+                    android:spinnerMode="dropdown" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView_status_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/layout_platform_store_value"
+                android:layout_marginStart="@dimen/marginStart_game_dialog_heading_value"
+                android:layout_marginEnd="@dimen/marginEnd_game_dialog_heading_value"
+                android:layout_marginTop="@dimen/marginTop_game_dialog_grouping"
+                android:textColor="@color/text_color_text_view_details_heading"
+                android:textSize="@dimen/textSize_edit_game_dialog_content_heading"
+                android:text="@string/txt_status" />
+
+            <Spinner
+                android:id="@+id/spinner_status"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_game_dialog_spinner"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/textView_status_heading"
+                android:layout_marginStart="@dimen/marginStart_game_dialog_heading_value"
+                android:layout_marginEnd="@dimen/marginEnd_game_dialog_heading_value"
+                android:layout_marginTop="@dimen/marginTop_game_dialog_grouping"
+                android:layout_marginBottom="@dimen/marginBottom_game_dialog_heading_value"
+                android:textColor="@color/text_color_text_view_details_value"
+                android:textSize="@dimen/textSize_edit_game_dialog_content_value"
+                android:spinnerMode="dropdown" />
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/layout_footer"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/nestedScrollView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/background_view_divider"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize_game_dialog_button"
+            android:text="@string/button_save"
+            android:textColor="@color/colorAccent"
+            android:padding="@dimen/padding_game_dialog_button"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/divider"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

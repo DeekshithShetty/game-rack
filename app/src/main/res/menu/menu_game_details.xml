@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_isFavorite"
+        android:title="@string/action_isFavorite"
+        android:icon="@drawable/ic_star_border_white_24dp"
+        android:checkable="true"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_edit"
+        android:icon="@drawable/ic_edit_white_24dp"
+        app:showAsAction="always"
+        android:title="@string/action_edit"/>
+
+    <item
+        android:id="@+id/action_remove_game"
+        android:orderInCategory="100"
+        android:title="@string/action_remove_game"
+        app:showAsAction="never" />
+
+</menu>

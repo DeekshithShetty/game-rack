@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#01579B</color>
+    <color name="colorPrimaryDark">#01478A</color>
+    <color name="colorAccent">#81C784</color>
+    <color name="background">#ff222222 </color>
+
+    <color name="background_snackbar">#ff404040</color>
+
+    <!-- Button -->
+    <color name="text_color_button_disabled">#888</color>
+
+    <!-- List row card -->
+    <color name="background_list_row_card">#ff303030</color>
+    <color name="background_list_row_image_view">#ff353535</color>
+    <color name="text_color_list_row_game_name">#EEE</color>
+    <color name="text_color_list_row_game_year">#AAA</color>
+    <color name="text_color_list_row_game_platform_store">#AAA</color>
+    <color name="text_color_list_row_game_status">#AAA</color>
+
+    <!-- Game Info Dialog -->
+    <color name="text_color_text_view_game_dialog_game_name">#EEE</color>
+    <color name="text_color_text_view_game_dialog_game_developer">#AAA</color>
+    <color name="text_color_text_view_game_dialog_game_release_date">#AAA</color>
+    <color name="text_color_text_view_game_dialog_heading">#AAA</color>
+    <color name="text_color_text_view_game_dialog_value">#EEE</color>
+
+    <!-- Game details page -->
+    <color name="text_color_text_view_details_game_name">#EEE</color>
+    <color name="text_color_text_view_details_game_status">#EEE</color>
+    <color name="text_color_text_view_details_game_platform_store">#AAA</color>
+    <color name="text_color_text_view_details_heading">#AAA</color>
+    <color name="text_color_text_view_details_value">#EEE</color>
+
+    <color name="background_view_divider">#555</color>
+
+    <color name="black_overlay">#66000000</color>
+
+</resources>

@@ -1,0 +1,92 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Generic dimens -->
+    <dimen name="layout_padding">16dp</dimen>
+    <dimen name="layout_paddingBottom_ad">100dp</dimen>
+
+    <!-- List row card -->
+    <dimen name="marginStart_list_row_card">8dp</dimen>
+    <dimen name="marginEnd_list_row_card">8dp</dimen>
+    <dimen name="marginTop_list_row_card">12dp</dimen>
+    <dimen name="marginBottom_list_row_card">0dp</dimen>
+    <dimen name="marginTop_list_row_text_view">8dp</dimen>
+    <dimen name="marginBottom_list_row_text_view">8dp</dimen>
+    <dimen name="marginStart_list_row_text_view">16dp</dimen>
+    <dimen name="marginEnd_list_row_text_view">16dp</dimen>
+    <dimen name="marginEnd_list_row_check_box">16dp</dimen>
+    <dimen name="marginEnd_list_row_is_favorite">16dp</dimen>
+
+    <dimen name="width_list_row_image_view">79dp</dimen> <!-- 2:3 aspect ratio 69dp 104dp -->
+    <dimen name="height_list_row_image_view">100dp</dimen>
+    <dimen name="width_list_row_is_favorite">20dp</dimen>
+    <dimen name="height_list_row_is_favorite">20dp</dimen>
+    <dimen name="width_list_row_currently_playing_layout">5dp</dimen>
+
+    <dimen name="textSize_list_row_game_name">16sp</dimen>
+    <dimen name="textSize_list_row_game_year">12sp</dimen>
+
+    <!-- Game Info Dialog -->
+    <dimen name="padding_game_dialog_button">20dp</dimen>
+
+    <dimen name="marginTop_game_dialog_text_view">8dp</dimen>
+    <dimen name="marginStart_game_dialog_text_view">16dp</dimen>
+    <dimen name="marginEnd_game_dialog_text_view">16dp</dimen>
+
+    <dimen name="marginTop_game_dialog_grouping">16dp</dimen>
+    <dimen name="marginStart_game_dialog_heading_value">16dp</dimen>
+    <dimen name="marginEnd_game_dialog_heading_value">16dp</dimen>
+    <dimen name="marginBottom_game_dialog_heading_value">16dp</dimen>
+    <dimen name="marginTop_game_dialog_heading_value">8dp</dimen>
+    <dimen name="marginEnd_game_dialog_button">16dp</dimen>
+
+    <dimen name="height_game_dialog_spinner">40dp</dimen>
+
+    <dimen name="textSize_game_dialog_game_name">20sp</dimen>
+    <dimen name="textSize_game_dialog_game_developer">14sp</dimen>
+    <dimen name="textSize_game_dialog_game_release_date">14sp</dimen>
+    <dimen name="textSize_game_dialog_content_heading">12sp</dimen>
+    <dimen name="textSize_game_dialog_content_value">14sp</dimen>
+
+    <dimen name="textSize_game_dialog_button">14sp</dimen>
+
+    <!-- Edit Game Dialog -->
+    <dimen name="textSize_edit_game_dialog_content_heading">14sp</dimen>
+    <dimen name="textSize_edit_game_dialog_content_value">16sp</dimen>
+
+    <dimen name="height_edit_game_dialog_spinner">48dp</dimen>
+
+    <!-- Game details page -->
+    <dimen name="width_details_image_view">110dp</dimen> <!-- TODO: 2:3 aspect ratio -->
+    <dimen name="height_details_image_view">150dp</dimen>
+    <dimen name="height_details_divider">1dp</dimen>
+    <dimen name="width_external_link_image_view">20dp</dimen>
+    <dimen name="height_external_link_image_view">20dp</dimen>
+
+    <dimen name="padding_rating_layout">8dp</dimen>
+    <dimen name="paddingTop_external_links_layout">8dp</dimen>
+    <dimen name="paddingBottom_external_links_layout">8dp</dimen>
+
+    <dimen name="marginTop_details_heading_value">8dp</dimen>
+    <dimen name="marginTop_details_grouping">16dp</dimen>
+    <dimen name="marginTop_details_divider">16dp</dimen>
+    <dimen name="marginBottom_details_divider">16dp</dimen>
+    <dimen name="marginStart_external_link_text_view">16dp</dimen>
+
+    <dimen name="textSize_details_game_status">24sp</dimen>
+    <dimen name="textSize_details_game_platform_store">20sp</dimen>
+    <dimen name="textSize_details_content_heading">14sp</dimen>
+    <dimen name="textSize_details_content_value">16sp</dimen>
+    <dimen name="textSize_details_rating">24sp</dimen>
+    <dimen name="textSize_details_external_links">20sp</dimen>
+
+    <!-- Expansion page -->
+    <dimen name="textSize_expansion_played_all">16sp</dimen>
+    <dimen name="textSize_expansion_name">20sp</dimen>
+
+    <dimen name="padding_expansion_layout">16dp</dimen>
+
+    <dimen name="marginTop_expansion_recycler_view">32dp</dimen>
+    <dimen name="marginEnd_expansion_name">16dp</dimen>
+
+</resources>
