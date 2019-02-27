@@ -35,10 +35,10 @@ public class FullscreenImageActivity extends AppCompatActivity {
                 .build();
         adView.loadAd(adRequest);
 
-        final String cloudinaryId = getIntent().getStringExtra(Constants.IntentKeys.cloudinaryId);
+        final String imageId = getIntent().getStringExtra(Constants.IntentKeys.imageId);
 
-        if(cloudinaryId != null && !cloudinaryId.isEmpty()) {
-            String fullScreenImageUrl = String.format(Constants.IGDBApi.coverFullScreenImageBaseUrl, cloudinaryId);
+        if(imageId != null && !imageId.isEmpty()) {
+            String fullScreenImageUrl = String.format(Constants.IGDBApi.coverFullScreenImageBaseUrl, imageId);
 
             Picasso.with(this)
                 .load(fullScreenImageUrl)

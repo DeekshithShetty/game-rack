@@ -15,9 +15,9 @@ public class Cover implements Parcelable {
     @SerializedName("url")
     @Expose
     private String url;
-    @SerializedName("cloudinary_id")
+    @SerializedName("image_id")
     @Expose
-    private String cloudinaryId;
+    private String imageId;
     @SerializedName("width")
     @Expose
     private int width;
@@ -35,12 +35,12 @@ public class Cover implements Parcelable {
         this.url = url;
     }
 
-    public String getCloudinaryId() {
-        return cloudinaryId;
+    public String getImageId() {
+        return imageId;
     }
 
-    public void setCloudinaryId(String cloudinaryId) {
-        this.cloudinaryId = cloudinaryId;
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
     }
 
     public int getWidth() {
@@ -62,7 +62,7 @@ public class Cover implements Parcelable {
 
     protected Cover(Parcel in) {
         url = in.readString();
-        cloudinaryId = in.readString();
+        imageId = in.readString();
         width = in.readInt();
         height = in.readInt();
     }
@@ -75,7 +75,7 @@ public class Cover implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(url);
-        dest.writeString(cloudinaryId);
+        dest.writeString(imageId);
         dest.writeInt(width);
         dest.writeInt(height);
     }

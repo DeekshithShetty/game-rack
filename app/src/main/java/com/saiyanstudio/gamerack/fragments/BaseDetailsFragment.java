@@ -131,8 +131,8 @@ public class BaseDetailsFragment extends Fragment {
         Bundle bundle = getArguments();
         baseGame = bundle.getParcelable(Constants.IntentKeys.baseGame);
 
-        if(baseGame.getCover() != null && baseGame.getCover().getCloudinaryId() != null && !baseGame.getCover().getCloudinaryId().isEmpty()){
-            String imageUrl = String.format(Constants.IGDBApi.coverBigImageBaseUrl, baseGame.getCover().getCloudinaryId());
+        if(baseGame.getCover() != null && baseGame.getCover().getImageId() != null && !baseGame.getCover().getImageId().isEmpty()){
+            String imageUrl = String.format(Constants.IGDBApi.coverBigImageBaseUrl, baseGame.getCover().getImageId());
             Picasso.with(getActivity())
                     .load(imageUrl)
                     .placeholder(R.drawable.ic_image_grey_24dp)
@@ -149,8 +149,8 @@ public class BaseDetailsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), FullscreenImageActivity.class);
 
-                if(baseGame.getCover() != null && baseGame.getCover().getCloudinaryId() != null && !baseGame.getCover().getCloudinaryId().isEmpty())
-                    intent.putExtra(Constants.IntentKeys.cloudinaryId, baseGame.getCover().getCloudinaryId());
+                if(baseGame.getCover() != null && baseGame.getCover().getImageId() != null && !baseGame.getCover().getImageId().isEmpty())
+                    intent.putExtra(Constants.IntentKeys.imageId, baseGame.getCover().getImageId());
                 getActivity().startActivity(intent);
             }
         });
@@ -220,11 +220,11 @@ public class BaseDetailsFragment extends Fragment {
         }
 
         if(baseGame.getEsrb() != null && baseGame.getPegi() != null) {
-            contentRating.setText(String.format(Constants.ContentRating.esrbAndPegi, baseGame.getEsrb().getRating(), baseGame.getPegi().getRating()));
+            contentRating.setText(String.format(Constants.ContentRating.esrbAndPegi, baseGame.getEsrb(), baseGame.getPegi()));
         } else if (baseGame.getEsrb() != null) {
-            contentRating.setText(String.format(Constants.ContentRating.esrb, baseGame.getEsrb().getRating()));
+            contentRating.setText(String.format(Constants.ContentRating.esrb, baseGame.getEsrb()));
         } else if (baseGame.getEsrb() != null) {
-            contentRating.setText(String.format(Constants.ContentRating.pegi, baseGame.getPegi().getRating()));
+            contentRating.setText(String.format(Constants.ContentRating.pegi, baseGame.getPegi()));
         } else {
             contentRating.setText(Constants.Generic.notAvailable);
         }

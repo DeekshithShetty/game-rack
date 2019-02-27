@@ -8,10 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.saiyanstudio.gamerack.common.Constants;
 import com.saiyanstudio.gamerack.models.Cover;
-import com.saiyanstudio.gamerack.models.ESRB;
 import com.saiyanstudio.gamerack.models.Expansion;
 import com.saiyanstudio.gamerack.models.Game;
-import com.saiyanstudio.gamerack.models.PEGI;
 import com.saiyanstudio.gamerack.models.TimeToBeat;
 import com.saiyanstudio.gamerack.models.Website;
 
@@ -28,7 +26,7 @@ import java.util.Locale;
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     // Database Version
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
 
     // Database Name
     private static final String DATABASE_NAME = "game_db";
@@ -41,7 +39,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_CREATED_AT = "created_at";
-    private static final String KEY_CLOUDINRY_ID = "cloudinary_id";
+    private static final String KEY_IMAGE_ID = "image_id";
     private static final String KEY_PLATFORM = "platform";
     private static final String KEY_STORE = "store";
     private static final String KEY_STATUS = "status";
@@ -78,7 +76,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_NAME + " TEXT,"
                 + KEY_CREATED_AT + " DATETIME,"
-                + KEY_CLOUDINRY_ID + " TEXT,"
+                + KEY_IMAGE_ID + " TEXT,"
                 + KEY_PLATFORM + " TEXT,"
                 + KEY_STORE + " TEXT,"
                 + KEY_STATUS + " TEXT,"
@@ -91,8 +89,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_RELEASE_DATE + " INTEGER,"
                 + KEY_GENRES_AND_TAGS + " TEXT,"
                 + KEY_TIME_TO_BEAT + " INTEGER,"
-                + KEY_ESRB + " INTEGER,"
-                + KEY_PEGI + " INTEGER,"
+                + KEY_ESRB + " TEXT,"
+                + KEY_PEGI + " TEXT,"
                 + KEY_OFFICIAL_SITE_LINK + " TEXT,"
                 + KEY_STEAM_LINK + " TEXT,"
                 + KEY_TWITCH_LINK + " TEXT,"
@@ -143,7 +141,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         gameValues.put(KEY_ID, game.getId());
         gameValues.put(KEY_NAME, game.getName());
         gameValues.put(KEY_CREATED_AT, getDateTime());
-        gameValues.put(KEY_CLOUDINRY_ID, (game.getCover() != null) ? game.getCover().getCloudinaryId() : null);
+        gameValues.put(KEY_IMAGE_ID, (game.getCover() != null) ? game.getCover().getImageId() : null);
         gameValues.put(KEY_PLATFORM, game.getPlatform());
         gameValues.put(KEY_STORE, game.getStore());
         gameValues.put(KEY_STATUS, game.getStatus());
@@ -156,8 +154,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         gameValues.put(KEY_RELEASE_DATE, game.getFirstReleaseDate());
         gameValues.put(KEY_GENRES_AND_TAGS, game.getGenresAndTagsString());
         gameValues.put(KEY_TIME_TO_BEAT, (game.getTimeToBeat() != null) ? game.getTimeToBeat().getNormally() : null);
-        gameValues.put(KEY_ESRB, (game.getEsrb() != null) ? game.getEsrb().getRating() : null);
-        gameValues.put(KEY_PEGI, (game.getPegi() != null) ? game.getPegi().getRating() : null);
+        gameValues.put(KEY_ESRB, game.getEsrb());
+        gameValues.put(KEY_PEGI, game.getPegi());
 
         List<Website> websiteList = game.getWebsites();
         if(websiteList != null && websiteList.size() > 0){
@@ -385,7 +383,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         game.setName(c.getString(c.getColumnIndex(KEY_NAME)));
 
         Cover cover = new Cover();
-        cover.setCloudinaryId(c.getString(c.getColumnIndex(KEY_CLOUDINRY_ID)));
+        cover.setImageId(c.getString(c.getColumnIndex(KEY_IMAGE_ID)));
         game.setCover(cover);
 
         game.setPlatform(c.getString(c.getColumnIndex(KEY_PLATFORM)));
@@ -404,13 +402,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         timeToBeat.setNormally(c.getInt(c.getColumnIndex(KEY_TIME_TO_BEAT)));
         game.setTimeToBeat(timeToBeat);
 
-        ESRB esrb = new ESRB();
-        esrb.setRating(c.getInt(c.getColumnIndex(KEY_ESRB)));
-        game.setEsrb(esrb);
-
-        PEGI pegi = new PEGI();
-        pegi.setRating(c.getInt(c.getColumnIndex(KEY_PEGI)));
-        game.setPegi(pegi);
+        game.setEsrb(c.getString(c.getColumnIndex(KEY_ESRB)));
+        game.setPegi(c.getString(c.getColumnIndex(KEY_PEGI)));
 
         List<Website> websiteList = new ArrayList<>();
 

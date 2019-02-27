@@ -184,8 +184,8 @@ public class GameInfoDialogFragment extends DialogFragment {
             add.setTextColor(getActivity().getResources().getColor(R.color.text_color_button_disabled));
         }
 
-        if(game.getCover() != null && game.getCover().getCloudinaryId() != null && !game.getCover().getCloudinaryId().isEmpty()) {
-            String imageUrl = String.format(Constants.IGDBApi.coverBigImageBaseUrl, game.getCover().getCloudinaryId());
+        if(game.getCover() != null && game.getCover().getImageId() != null && !game.getCover().getImageId().isEmpty()) {
+            String imageUrl = String.format(Constants.IGDBApi.coverBigImageBaseUrl, game.getCover().getImageId());
             Picasso.with(getActivity())
                     .load(imageUrl)
                     .placeholder(R.drawable.ic_image_grey_24dp)
@@ -229,8 +229,10 @@ public class GameInfoDialogFragment extends DialogFragment {
 
     private void callApisAndBindData(int gameId) {
 
+        String strRequestBody = "where id = " + gameId + ";fields name,summary,rating,aggregated_rating,total_rating,involved_companies,game_engines,category,time_to_beat.*,game_modes,themes,genres,expansions,first_release_date,cover.*,age_ratings.category,age_ratings.rating,websites.url, websites.category;";
+
         Call<List<Game>> getGameCall
-                = RetrofitClient.getIgdbApiService(getActivity()).getGameInfoById(gameId);
+                = RetrofitClient.getIgdbApiService(getActivity()).getGameInfoByQuery(strRequestBody);
 
         getGameCall.enqueue(new Callback<List<Game>>() {
             @Override
@@ -258,8 +260,10 @@ public class GameInfoDialogFragment extends DialogFragment {
 
         if(developers != null && developers.size() > 0) {
 
+            String strRequestBody = "fields name;where id = (" + developers.get(0).toString() + ");";
+
             Call<List<Info>> getDevelopersInfoCall
-                    = RetrofitClient.getIgdbApiService(getActivity()).getDeveloperInfoByIds(developers.get(0).toString());
+                    = RetrofitClient.getIgdbApiService(getActivity()).getDeveloperInfoByQuery(strRequestBody);
 
             getDevelopersInfoCall.enqueue(new Callback<List<Info>>() {
                 @Override

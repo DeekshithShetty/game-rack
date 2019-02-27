@@ -61,7 +61,7 @@ public class AddGameAdapter extends RecyclerView.Adapter<AddGameAdapter.MyViewHo
         holder.releaseYear.setText(Utility.epochTimeToYear(game.getFirstReleaseDate()));
         holder.inLibrary.setChecked(game.isInLibrary());
         if(game.getCover() != null){
-            String imageUrl = String.format(Constants.IGDBApi.coverBigImageBaseUrl, game.getCover().getCloudinaryId());
+            String imageUrl = String.format(Constants.IGDBApi.coverBigImageBaseUrl, game.getCover().getImageId());
             Picasso.with(context)
                     .load(imageUrl)
                     .placeholder(R.drawable.ic_image_grey_24dp)

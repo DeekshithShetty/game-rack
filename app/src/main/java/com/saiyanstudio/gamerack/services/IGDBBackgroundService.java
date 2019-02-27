@@ -68,9 +68,10 @@ public class IGDBBackgroundService extends IntentService {
 
         if(expansions != null && expansions.size() > 0) {
             String expansionsIdString = StringUtils.join(expansions, ",");
+            String strRequestBody = "fields name;where id = (" + expansionsIdString + ");";
 
             Call<List<Info>> getExpansionsInfoCall
-                    = RetrofitClient.getIgdbApiService(getApplicationContext()).getExpansionInfoByIds(expansionsIdString);
+                    = RetrofitClient.getIgdbApiService(getApplicationContext()).getExpansionInfoByQuery(strRequestBody);
 
             getExpansionsInfoCall.enqueue(new Callback<List<Info>>() {
                 @Override
@@ -100,9 +101,10 @@ public class IGDBBackgroundService extends IntentService {
         if(genres != null && genres.size() > 0) {
 
             String genresIdString = StringUtils.join(game.getGenres(), ",");
+            String strRequestBody = "fields name;where id = (" + genresIdString + ");";
 
             Call<List<Info>> getGenresInfoCall
-                    = RetrofitClient.getIgdbApiService(getApplicationContext()).getGenreInfoByIds(genresIdString);
+                    = RetrofitClient.getIgdbApiService(getApplicationContext()).getGenreInfoByQuery(strRequestBody);
 
             getGenresInfoCall.enqueue(new Callback<List<Info>>() {
                 @Override

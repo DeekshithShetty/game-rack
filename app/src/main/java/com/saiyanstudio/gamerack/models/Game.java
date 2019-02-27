@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.saiyanstudio.gamerack.common.Constants;
 import com.saiyanstudio.gamerack.common.Utility;
 
 import org.apache.commons.lang3.StringUtils;
@@ -32,7 +33,7 @@ public class Game implements Parcelable {
     @SerializedName("total_rating")
     @Expose
     private double totalRating;
-    @SerializedName("developers")
+    @SerializedName("involved_companies")
     @Expose
     private List<Integer> developers = null;
     @SerializedName("game_engines")
@@ -56,18 +57,15 @@ public class Game implements Parcelable {
     @SerializedName("expansions")
     @Expose
     private List<Integer> expansions = null;
+    @SerializedName("age_ratings")
+    @Expose
+    private List<AgeRating> ageRatings = null;
     @SerializedName("first_release_date")
     @Expose
     private long firstReleaseDate;
     @SerializedName("cover")
     @Expose
     private Cover cover;
-    @SerializedName("esrb")
-    @Expose
-    private ESRB esrb;
-    @SerializedName("pegi")
-    @Expose
-    private PEGI pegi;
     @SerializedName("websites")
     @Expose
     private List<Website> websites = null;
@@ -93,6 +91,8 @@ public class Game implements Parcelable {
     private String developerInfoString;
     private String genresAndTagsString;
     private List<Expansion> expansionList = null;
+    private String esrb;
+    private String pegi;
 
     public Game() { }
 
@@ -208,6 +208,10 @@ public class Game implements Parcelable {
         this.expansions = expansions;
     }
 
+    public List<AgeRating> getAgeRatings() { return ageRatings; }
+
+    public void setAgeRatings(List<AgeRating> ageRatings) { this.ageRatings = ageRatings; }
+
     public long getFirstReleaseDate() {
         return firstReleaseDate;
     }
@@ -222,22 +226,6 @@ public class Game implements Parcelable {
 
     public void setCover(Cover cover) {
         this.cover = cover;
-    }
-
-    public ESRB getEsrb() {
-        return esrb;
-    }
-
-    public void setEsrb(ESRB esrb) {
-        this.esrb = esrb;
-    }
-
-    public PEGI getPegi() {
-        return pegi;
-    }
-
-    public void setPegi(PEGI pegi) {
-        this.pegi = pegi;
     }
 
     public List<Website> getWebsites() {
@@ -408,6 +396,38 @@ public class Game implements Parcelable {
         return finalJoinedString;
     }
 
+    public void setEsrb(String esrb) { this.esrb = esrb; }
+
+    public String getEsrb() {
+        if(esrb != null) return esrb;
+
+        if(getAgeRatings() != null) {
+            for(AgeRating ageRating : getAgeRatings()) {
+                if(ageRating.getCategory() == Constants.AgeRatingCategory.ESRB) {
+                    esrb = ageRating.getRatingName();
+                    return esrb;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void setPegi(String pegi) { this.pegi = pegi; }
+
+    public String getPegi() {
+        if(pegi != null) return pegi;
+
+        if(getAgeRatings() != null) {
+            for(AgeRating ageRating : getAgeRatings()) {
+                if(ageRating.getCategory() == Constants.AgeRatingCategory.PEGI) {
+                    pegi = ageRating.getRatingName();
+                    return pegi;
+                }
+            }
+        }
+        return null;
+    }
+
     protected Game(Parcel in) {
         id = in.readInt();
         name = in.readString();
@@ -455,8 +475,8 @@ public class Game implements Parcelable {
         }
         firstReleaseDate = in.readLong();
         cover = (Cover) in.readValue(Cover.class.getClassLoader());
-        esrb = (ESRB) in.readValue(ESRB.class.getClassLoader());
-        pegi = (PEGI) in.readValue(PEGI.class.getClassLoader());
+        esrb = in.readString();
+        pegi = in.readString();
         if (in.readByte() == 0x01) {
             websites = new ArrayList<Website>();
             in.readList(websites, Website.class.getClassLoader());

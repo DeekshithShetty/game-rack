@@ -59,9 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent addGameActivityIntent = new Intent(MainActivity.this, AddGameActivity.class);
                 startActivity(addGameActivityIntent);
-
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //        .setAction("Action", null).show();
             }
         });
     }

@@ -44,6 +44,8 @@ import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import okhttp3.internal.Util;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -142,17 +144,22 @@ public class AddGameActivity extends AppCompatActivity {
                     }
                     adapter.add(searchText);
 
+                    // TODO: Move request body query strings somewhere else to make  it more maintainable
+                    String strRequestBody = "search \"" + searchText + "\";fields name, first_release_date, cover.*;where category = (0,4);";
+
                     Call<List<Game>> searchGameCall
-                            = RetrofitClient.getIgdbApiService(AddGameActivity.this).searchGame(searchText);
+                            = RetrofitClient.getIgdbApiService(AddGameActivity.this).getGameInfoByQuery(strRequestBody);
 
                     searchGameCall.enqueue(new Callback<List<Game>>() {
                         @Override
                         public void onResponse(Call<List<Game>> call, Response<List<Game>> response) {
                             progressBar.setVisibility(View.GONE);
-                            if(response.body().size() > 0)
-                                prepareGameData(response.body());
-                            else
-                                noGamesMsg.setVisibility(View.VISIBLE);
+                            if (response.isSuccessful()) {
+                                if((response.body() != null) && response.body().size() > 0)
+                                    prepareGameData(response.body());
+                                else
+                                    noGamesMsg.setVisibility(View.VISIBLE);
+                            }
                         }
 
                         @Override

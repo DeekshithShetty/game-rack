@@ -66,7 +66,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.MyViewHolder
         Game game = gamesList.get(position);
 
         if(game.getCover() != null){
-            String imageUrl = String.format(Constants.IGDBApi.coverBigImageBaseUrl, game.getCover().getCloudinaryId());
+            String imageUrl = String.format(Constants.IGDBApi.coverBigImageBaseUrl, game.getCover().getImageId());
             Picasso.with(context)
                     .load(imageUrl)
                     .placeholder(R.drawable.ic_image_grey_24dp)

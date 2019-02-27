@@ -33,7 +33,7 @@ public class Constants {
         public static String baseGame = "BASE_GAME";
         public static String expansion = "EXPANSION";
         public static String gameImage = "GAME_IMAGE_BITMAP";
-        public static String cloudinaryId = "CLOUDINARY_ID";
+        public static String imageId = "IMAGE_ID";
         public static String allGameList = "ALL_GAME_LIST";
         public static String tbpGameList = "TBP_GAME_LIST";
         public static String completedGameList = "COMPLETED_GAME_LIST";
@@ -42,10 +42,9 @@ public class Constants {
         public static String restoreFileName = "RESTORE_FILE_NAME";
     }
 
-    // add your IGDB baseUrl and userKey here
     public static class IGDBApi {
-        public static String baseUrl = "";
-        public static String UserKey = "";
+        public static String baseUrl = "{ -- https://your-igdb-api-url.com -- }";
+        public static String UserKey = "{ -- put-your-user-key-here -- }";
         public static String accept = "application/json";
         public static String coverBigImageBaseUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/%s.jpg";
         public static String coverFullScreenImageBaseUrl = "https://images.igdb.com/igdb/image/upload/t_1080p/%s.jpg";
@@ -85,6 +84,26 @@ public class Constants {
         public static String esrbAndPegi = "ESRB-%d, PEGI-%d";
         public static String esrb = "ESRB-%d";
         public static String pegi = "PEGI-%d";
+    }
+
+    public static class AgeRatingCategory {
+        public static int ESRB = 1;
+        public static int PEGI = 13;
+    }
+
+    public static class AgeRatingValue {
+        public static String Three = "3";
+        public static String Seven = "7";
+        public static String Twelve = "12";
+        public static String Sixteen = "16";
+        public static String Eighteen = "18";
+        public static String RP = "RP";
+        public static String EC = "EC";
+        public static String E = "E";
+        public static String E10 = "E10";
+        public static String T = "T";
+        public static String M = "M";
+        public static String AO = "AO";
     }
 
     public static class WebSiteCategory {
