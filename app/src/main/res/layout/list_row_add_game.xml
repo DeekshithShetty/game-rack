@@ -13,7 +13,7 @@
     android:layout_marginEnd="@dimen/marginEnd_list_row_card"
     android:layout_marginRight="@dimen/marginEnd_list_row_card"
     android:layout_marginBottom="@dimen/marginBottom_list_row_card"
-    android:foreground="?android:attr/selectableItemBackground"
+    android:background="?attr/selectableItemBackground"
     android:focusable="true"
     android:clickable="true">
 

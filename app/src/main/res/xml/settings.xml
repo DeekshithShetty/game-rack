@@ -35,10 +35,6 @@
             android:summary="@string/prefs_summary_data_provider" />
 
         <Preference
-            android:key="@string/prefs_key_remove_ads"
-            android:title="@string/prefs_title_remove_ads" />
-
-        <Preference
             android:key="@string/prefs_key_rate_app"
             android:title="@string/prefs_title_rate_app" />
 

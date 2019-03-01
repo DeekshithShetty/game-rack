@@ -129,17 +129,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 }
             });
 
-
-            // Remove Ads preference click listener
-            Preference removeAdsPref = findPreference(getString(R.string.prefs_key_remove_ads));
-            removeAdsPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    return false;
-                }
-            });
-
-
             // Rate the app preference click listener
             Preference rateTheAppPref = findPreference(getString(R.string.prefs_key_rate_app));
             rateTheAppPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
