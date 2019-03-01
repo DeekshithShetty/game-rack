@@ -54,7 +54,7 @@ public class Utility {
 
     public static String epochTimeToDate(long epochTime) {
         if(epochTime > 0){
-            Date date = new Date(epochTime);
+            Date date = new Date(epochTime * 1000);
             DateFormat format = new SimpleDateFormat("MMM d, yyyy");
             return format.format(date);
         } else {
@@ -64,7 +64,7 @@ public class Utility {
 
     public static String epochTimeToYear(long epochTime) {
         if(epochTime > 0){
-            Date date = new Date(epochTime);
+            Date date = new Date(epochTime * 1000);
             DateFormat format = new SimpleDateFormat("yyyy");
             return format.format(date);
         } else {

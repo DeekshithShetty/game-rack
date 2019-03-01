@@ -475,8 +475,12 @@ public class Game implements Parcelable {
         }
         firstReleaseDate = in.readLong();
         cover = (Cover) in.readValue(Cover.class.getClassLoader());
-        esrb = in.readString();
-        pegi = in.readString();
+        if (in.readByte() == 0x01) {
+            ageRatings = new ArrayList<AgeRating>();
+            in.readList(ageRatings, AgeRating.class.getClassLoader());
+        } else {
+            expansionsInfo = null;
+        }
         if (in.readByte() == 0x01) {
             websites = new ArrayList<Website>();
             in.readList(websites, Website.class.getClassLoader());
@@ -530,6 +534,8 @@ public class Game implements Parcelable {
         } else {
             expansionList = null;
         }
+        esrb = in.readString();
+        pegi = in.readString();
     }
 
     @Override
@@ -585,8 +591,12 @@ public class Game implements Parcelable {
         }
         dest.writeLong(firstReleaseDate);
         dest.writeValue(cover);
-        dest.writeValue(esrb);
-        dest.writeValue(pegi);
+        if (ageRatings == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(ageRatings);
+        }
         if (websites == null) {
             dest.writeByte((byte) (0x00));
         } else {
@@ -640,6 +650,8 @@ public class Game implements Parcelable {
             dest.writeByte((byte) (0x01));
             dest.writeList(expansionList);
         }
+        dest.writeString(esrb);
+        dest.writeString(pegi);
     }
 
     @SuppressWarnings("unused")

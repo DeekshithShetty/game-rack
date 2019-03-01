@@ -1,6 +1,5 @@
 <android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -82,20 +81,6 @@
 
         </android.support.v7.widget.CardView>
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView1"
-            android:layout_gravity="bottom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/marginTop_details_grouping"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/ad_banner_ad_unit_id"/>
-
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,7 +88,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adView1"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
             app:layout_constraintVertical_bias="0.0">
 
             <android.support.constraint.ConstraintLayout
@@ -285,20 +270,6 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout_description" />
 
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/adView2"
-                android:layout_gravity="bottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginTop_details_grouping"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_divider2"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/ad_banner_ad_unit_id"/>
-
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/layout_release_date"
                 android:layout_width="0dp"
@@ -306,7 +277,7 @@
                 android:layout_marginTop="@dimen/marginTop_details_grouping"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/adView2">
+                app:layout_constraintTop_toBottomOf="@+id/view_divider2">
 
                 <TextView
                     android:id="@+id/textView_developer_heading"
@@ -477,20 +448,6 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout_content_rating" />
 
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/adView3"
-                android:layout_gravity="bottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginTop_details_grouping"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_divider5"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/ad_banner_ad_unit_id"/>
-
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/layout_external_links"
                 android:layout_width="0dp"
@@ -498,7 +455,7 @@
                 android:layout_marginTop="@dimen/marginTop_details_grouping"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/adView3">
+                app:layout_constraintTop_toBottomOf="@+id/view_divider5">
 
                 <TextView
                     android:id="@+id/textView_external_links_heading"

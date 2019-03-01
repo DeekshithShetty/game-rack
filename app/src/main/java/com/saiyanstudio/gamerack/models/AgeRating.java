@@ -1,5 +1,8 @@
 package com.saiyanstudio.gamerack.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.saiyanstudio.gamerack.common.Constants;
@@ -8,7 +11,7 @@ import com.saiyanstudio.gamerack.common.Constants;
  * Created by deekshith on 27-02-2019.
  */
 
-public class AgeRating {
+public class AgeRating implements Parcelable {
     @SerializedName("category")
     @Expose
     private int category;
@@ -81,5 +84,35 @@ public class AgeRating {
 
     public void setRatingName(String ratingName) {
         this.ratingName = ratingName;
+    }
+
+    public AgeRating() { }
+
+    public static final Creator<AgeRating> CREATOR = new Creator<AgeRating>() {
+        @Override
+        public AgeRating createFromParcel(Parcel in) {
+            return new AgeRating(in);
+        }
+
+        @Override
+        public AgeRating[] newArray(int size) {
+            return new AgeRating[size];
+        }
+    };
+
+    protected AgeRating(Parcel in) {
+        category = in.readInt();
+        rating = in.readInt();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(category);
+        dest.writeInt(rating);
     }
 }

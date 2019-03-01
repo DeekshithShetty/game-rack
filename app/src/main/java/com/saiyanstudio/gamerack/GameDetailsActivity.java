@@ -10,8 +10,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.saiyanstudio.gamerack.adapters.ViewPagerAdapter;
 import com.saiyanstudio.gamerack.common.Constants;
 import com.saiyanstudio.gamerack.common.Utility;
@@ -37,8 +35,6 @@ public class GameDetailsActivity extends AppCompatActivity {
     @BindView(R.id.tabs_game_details) TabLayout tabLayout;
     @BindView(R.id.viewpager_game_details) ViewPager viewPager;
 
-    @BindView(R.id.adView) AdView adView;
-
     private Game selectedGame;
     private DatabaseHandler db;
 
@@ -48,12 +44,6 @@ public class GameDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_details);
 
         ButterKnife.bind(this);
-
-        // Load ads
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(Constants.AdMobs.testDeviceId)
-                .build();
-        adView.loadAd(adRequest);
 
         db = new DatabaseHandler(this);
 
@@ -89,25 +79,16 @@ public class GameDetailsActivity extends AppCompatActivity {
 
     @Override
     public void onPause() {
-        if (adView != null) {
-            adView.pause();
-        }
         super.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (adView != null) {
-            adView.resume();
-        }
     }
 
     @Override
     public void onDestroy() {
-        if (adView != null) {
-            adView.destroy();
-        }
         super.onDestroy();
     }
 

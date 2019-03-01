@@ -81,9 +81,9 @@ public class Constants {
     }
 
     public static class ContentRating {
-        public static String esrbAndPegi = "ESRB-%d, PEGI-%d";
-        public static String esrb = "ESRB-%d";
-        public static String pegi = "PEGI-%d";
+        public static String esrbAndPegi = "ESRB-%s, PEGI-%s";
+        public static String esrb = "ESRB-%s";
+        public static String pegi = "PEGI-%s";
     }
 
     public static class AgeRatingCategory {
@@ -116,12 +116,4 @@ public class Constants {
     public static class Generic {
         public static String notAvailable = "N/A";
     }
-
-    public static class AdMobs {
-        public static String appId = "ca-app-pub-9853517059952914~3030290622";
-        public static String testDeviceId = "0868A69A2548F15E222D5FEC2F47866D";
-        public static String bannerAdUnitId = "ca-app-pub-9853517059952914/8369466963";
-        public static String interstitialAdUnitId = "ca-app-pub-9853517059952914/2975338358";
-    }
-
 }

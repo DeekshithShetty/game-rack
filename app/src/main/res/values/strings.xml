@@ -125,8 +125,4 @@
 
     <string name="choose_email_client">Choose email client</string>
 
-    <!-- AdMob ad unit IDs -->
-    <string name="ad_banner_ad_unit_id">ca-app-pub-9853517059952914/8369466963</string>
-    <string name="ad_interstitial_ad_unit_id">ca-app-pub-9853517059952914/2975338358</string>
-
 </resources>

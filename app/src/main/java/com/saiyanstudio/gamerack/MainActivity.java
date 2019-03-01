@@ -15,9 +15,6 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.saiyanstudio.gamerack.adapters.ViewPagerAdapter;
 import com.saiyanstudio.gamerack.common.Constants;
 import com.saiyanstudio.gamerack.fragments.GameListFragment;
@@ -32,22 +29,12 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.viewpager_game_list) ViewPager viewPager;
     @BindView(R.id.fab_add_game) FloatingActionButton fab;
 
-    @BindView(R.id.adView) AdView adView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
-
-        // Load ads
-        MobileAds.initialize(this, Constants.AdMobs.appId);
-
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(Constants.AdMobs.testDeviceId)
-                .build();
-        adView.loadAd(adRequest);
 
         setSupportActionBar(toolbar);
         setupViewPager(viewPager);
@@ -65,25 +52,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onPause() {
-        if (adView != null) {
-            adView.pause();
-        }
         super.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (adView != null) {
-            adView.resume();
-        }
     }
 
     @Override
     public void onDestroy() {
-        if (adView != null) {
-            adView.destroy();
-        }
         super.onDestroy();
     }
 

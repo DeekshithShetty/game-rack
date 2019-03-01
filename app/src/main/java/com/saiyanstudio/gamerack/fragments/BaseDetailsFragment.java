@@ -13,9 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.saiyanstudio.gamerack.FullscreenImageActivity;
 import com.saiyanstudio.gamerack.R;
 import com.saiyanstudio.gamerack.common.Constants;
@@ -64,10 +61,6 @@ public class BaseDetailsFragment extends Fragment {
     @BindView(R.id.textView_link_twitch) TextView twitchLink;
     @BindView(R.id.textView_link_wikia) TextView wikiaLink;
 
-    @BindView(R.id.adView1) AdView adView1;
-    @BindView(R.id.adView2) AdView adView2;
-    @BindView(R.id.adView3) AdView adView3;
-
     private Game baseGame;
 
     public BaseDetailsFragment() {
@@ -85,48 +78,6 @@ public class BaseDetailsFragment extends Fragment {
         View fragmentView = inflater.inflate(R.layout.fragment_base_details, container, false);
 
         ButterKnife.bind(this, fragmentView);
-
-        // Load ads
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(Constants.AdMobs.testDeviceId)
-                .build();
-
-        adView1.loadAd(adRequest);
-        adView1.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                adView1.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                adView1.setVisibility(View.GONE);
-            }
-        });
-        adView2.loadAd(adRequest);
-        adView2.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                adView2.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                adView2.setVisibility(View.GONE);
-            }
-        });
-        adView3.loadAd(adRequest);
-        adView3.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                adView3.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                adView3.setVisibility(View.GONE);
-            }
-        });
 
         Bundle bundle = getArguments();
         baseGame = bundle.getParcelable(Constants.IntentKeys.baseGame);
@@ -223,7 +174,7 @@ public class BaseDetailsFragment extends Fragment {
             contentRating.setText(String.format(Constants.ContentRating.esrbAndPegi, baseGame.getEsrb(), baseGame.getPegi()));
         } else if (baseGame.getEsrb() != null) {
             contentRating.setText(String.format(Constants.ContentRating.esrb, baseGame.getEsrb()));
-        } else if (baseGame.getEsrb() != null) {
+        } else if (baseGame.getPegi() != null) {
             contentRating.setText(String.format(Constants.ContentRating.pegi, baseGame.getPegi()));
         } else {
             contentRating.setText(Constants.Generic.notAvailable);
@@ -296,43 +247,16 @@ public class BaseDetailsFragment extends Fragment {
 
     @Override
     public void onPause() {
-        if (adView1 != null) {
-            adView1.pause();
-        }
-        if (adView2 != null) {
-            adView2.pause();
-        }
-        if (adView3 != null) {
-            adView3.pause();
-        }
         super.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (adView1 != null) {
-            adView1.resume();
-        }
-        if (adView2 != null) {
-            adView2.pause();
-        }
-        if (adView3 != null) {
-            adView3.pause();
-        }
     }
 
     @Override
     public void onDestroy() {
-        if (adView1 != null) {
-            adView1.destroy();
-        }
-        if (adView2 != null) {
-            adView2.pause();
-        }
-        if (adView3 != null) {
-            adView3.pause();
-        }
         super.onDestroy();
     }
 

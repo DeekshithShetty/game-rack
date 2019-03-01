@@ -16,19 +16,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 import com.saiyanstudio.gamerack.adapters.AddGameAdapter;
 import com.saiyanstudio.gamerack.common.Constants;
 import com.saiyanstudio.gamerack.common.Utility;
@@ -44,9 +37,6 @@ import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.internal.Util;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -60,8 +50,6 @@ public class AddGameActivity extends AppCompatActivity {
     @BindView(R.id.textView_no_games_found_msg) TextView noGamesMsg;
     @BindView(R.id.progressBar) ProgressBar progressBar;
 
-    @BindView(R.id.adView) AdView adView;
-
     private AddGameAdapter addGameAdapter;
     private List<Game> gamesList = new ArrayList<>();
     private ArrayList<String> searchHistoryList;
@@ -69,24 +57,12 @@ public class AddGameActivity extends AppCompatActivity {
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
 
-    private InterstitialAd interstitialAd;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_game);
 
         ButterKnife.bind(this);
-
-        // Load ads
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(Constants.AdMobs.testDeviceId)
-                .build();
-        adView.loadAd(adRequest);
-
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId(Constants.AdMobs.interstitialAdUnitId);
-        interstitialAd.loadAd(adRequest);
 
         toolbar.setTitle("Search");
         setSupportActionBar(toolbar);
@@ -196,10 +172,6 @@ public class AddGameActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(View view, int position) {
                     Game selectedGame = gamesList.get(position);
-                    if (interstitialAd.isLoaded()) {
-                        interstitialAd.show();
-                    }
-
                     showGameInfoDialog(selectedGame);
                 }
             })
@@ -208,25 +180,16 @@ public class AddGameActivity extends AppCompatActivity {
 
     @Override
     public void onPause() {
-        if (adView != null) {
-            adView.pause();
-        }
         super.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (adView != null) {
-            adView.resume();
-        }
     }
 
     @Override
     public void onDestroy() {
-        if (adView != null) {
-            adView.destroy();
-        }
         super.onDestroy();
     }
 
